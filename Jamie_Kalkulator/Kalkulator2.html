@@ -1,0 +1,104 @@
+<html>
+    <head>
+       <title>Kalkulator Sederhana</title>
+    <style>
+    body{
+        background: linear-gradient(grey, black );
+        font-family: Arial, Helvetica, sans-serif;
+
+    .container{
+    Width: 200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #E5E4E2;
+    border-radius: 5px;
+    margin-top: 80px;
+    
+    }
+    input[type="button"]{
+        width: 23%;
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 5px;
+        background: linear-gradient(black, grey );
+        color: antiquewhite;
+    }
+    input[type="text"]{
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 10px;
+        text-align: right;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+        margin-left: 18px;
+        border: 1;
+    }
+    input[type="button"]:hover{
+        background: rgba(16, 9, 214, 0.879);
+        cursor: pointer;
+    }
+    </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1 align="center">Kalkulator</h1>
+            <input type="text" id="result" readonly>
+            <input type="button" value="1" onclick="appendNumber(1)">
+            <input type="button" value="2" onclick="appendNumber(2)">
+            <input type="button" value="3" onclick="appendNumber(3)">
+            <input type="button" value="+" onclick="appendOperator('+')">
+            <input type="button" value="4" onclick="appendNumber(4)">
+            <input type="button" value="5" onclick="appendNumber(5)">
+            <input type="button" value="6" onclick="appendNumber(6)">
+            <input type="button" value="-" onclick="appendOperator('-')">
+            <input type="button" value="7" onclick="appendNumber(7)">
+            <input type="button" value="8" onclick="appendNumber(8)">
+            <input type="button" value="9" onclick="appendNumber(9)">
+            <input type="button" value="X" onclick="appendOperator('*')">
+            <input type="button" value="0" onclick="appendNumber(0)">
+            <input type="button" value="." onclick="appendDecimal()">
+            <input type="button" value="=" onclick="calculate()">
+            <input type="button" value=":" onclick="appendOperator('/')">
+            <input type="button" value="C" onclick="clearResult()">
+            <input type="button" value="<=" onclick="deleteLastCharacter()">
+            <a href="kalkulator.php">Kembali</a>
+        </div>
+
+        <script>
+            function
+            appendNumber(number){
+                document.getElementById("result").value+=number;
+            }
+            function
+            appendOperator(operator){
+                document.getElementById("result").value+=operator;
+            }
+            function
+            appendDecimal(){
+                var curentResult=document.getElementById("result").value;
+                if (curentResult.indexOf(".")===-1){
+                    document.getElementById("result").value+=".";
+                }
+            }
+            function
+            clearResult(){
+                document.getElementById("result").value="";
+            }
+            function 
+            calculate(){
+                var result=eval(document.getElementById("result").value);
+                document.getElementById("result").value=result;
+            }
+            function
+            deleteLastCharacter(){
+                var curentResult=document.getElementById("result").value;
+                    document.getElementById("result").value=curentResult.slice(0,-1);
+                }
+            </script>
+
+    </body>
+    </html>
+
